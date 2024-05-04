@@ -27,7 +27,7 @@
     <parent>
         <groupId>org.apache.openjpa</groupId>
         <artifactId>openjpa-parent</artifactId>
-        <version>4.0.0</version>
+        <version>4.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>openjpa-kernel</artifactId>
@@ -82,7 +82,7 @@
             -->
             <groupId>io.openliberty.api</groupId>
             <artifactId>io.openliberty.transaction</artifactId>
-            <version>1.1.74</version>
+            <version>1.1.88</version>
             <scope>provided</scope>
             <optional>true</optional>
         </dependency>
@@ -93,14 +93,14 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>javacc-maven-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <id>jjtree-javacc-jpql</id>
                         <phase>generate-sources</phase>
                         <configuration>
                             <buildNodeFiles>false</buildNodeFiles>
-                            <jdkVersion>${java.class.version}</jdkVersion>
+                            <jdkVersion>1.5</jdkVersion>
                         </configuration>
                         <goals>
                             <goal>jjtree-javacc</goal>

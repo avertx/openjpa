@@ -33,4 +33,9 @@ public class SimpleNode
     SimpleNode(JPQL parser, int id) {
         super(parser, id);
     }
+
+    @Override
+    public int getId() {
+        return id;
+    }
 }

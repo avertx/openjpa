@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.openjpa.persistence.criteria.OpenJPACriteriaBuilder;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.PersistenceContextType;
@@ -30,9 +32,6 @@ import jakarta.persistence.criteria.ParameterExpression;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import jakarta.persistence.metamodel.EntityType;
-
-import org.apache.openjpa.persistence.criteria.OpenJPACriteriaBuilder;
-
 import openbook.domain.Author;
 import openbook.domain.Author_;
 import openbook.domain.Book;

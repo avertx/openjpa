@@ -35,11 +35,11 @@
     <name>OpenJPA Parent POM</name>
     <description>Apache OpenJPA implementation of Jakarta JPA 3.1</description>
 
-    <version>4.0.0</version>
+    <version>4.0.1-SNAPSHOT</version>
 
     <properties>
-        <java.class.version>11</java.class.version>
-        <java.testclass.version>11</java.testclass.version>
+        <java.class.version>17</java.class.version>
+        <java.testclass.version>17</java.testclass.version>
 
         <doclint>none</doclint>
 
@@ -76,34 +76,34 @@
         <createSource>none</createSource>
         <createSources>false</createSources>
         <!-- common JDBC driver versions -->
-        <derby.version>10.15.2.0</derby.version>
-        <hsqldb.version>2.5.1</hsqldb.version>
-        <mysql.connector.version>5.1.49</mysql.connector.version>
+        <derby.version>10.17.1.0</derby.version>
+        <hsqldb.version>2.7.2</hsqldb.version>
+        <mysql.connector.version>8.0.33</mysql.connector.version>
         <mariadb.connector.version>2.7.2</mariadb.connector.version>
-        <postgresql.connector.version>42.5.1</postgresql.connector.version>
+        <postgresql.connector.version>42.7.3</postgresql.connector.version>
         <mssql.connector.version>11.2.1.jre8</mssql.connector.version>
 
         <!-- other common versions -->
-        <kubernetes-client.version>6.2.0</kubernetes-client.version>
-        <slf4j.version>1.7.23</slf4j.version>
+        <kubernetes-client.version>6.12.1</kubernetes-client.version>
+        <slf4j.version>2.1.0-alpha1</slf4j.version>
         <!-- Compile Java source/target class level -->
         <compile.class.source>${java.class.version}</compile.class.source>
         <compile.class.target>${java.class.version}</compile.class.target>
         <compile.testclass.source>${java.testclass.version}</compile.testclass.source>
         <compile.testclass.target>${java.testclass.version}</compile.testclass.target>
 
-        <maven.javadoc.version>3.0.1</maven.javadoc.version>
+        <maven.javadoc.version>3.6.3</maven.javadoc.version>
         <javadoc.additionalparam />
-        <maven.surefire.version>3.0.0-M7</maven.surefire.version>
+        <maven.surefire.version>3.2.5</maven.surefire.version>
 
         <xbean.version>4.23</xbean.version>
         <bval.version>3.0.0</bval.version>
-        <log4j2.version>2.19.0</log4j2.version>
-        <ant.version>1.10.12</ant.version>
+        <log4j2.version>3.0.0-beta2</log4j2.version>
+        <ant.version>1.10.14</ant.version>
 
-        <jmock.version>2.9.0</jmock.version>
-        <dbcp2.version>2.8.0</dbcp2.version>
-        <pool2.version>2.9.0</pool2.version>
+        <jmock.version>2.13.1</jmock.version>
+        <dbcp2.version>2.12.0</dbcp2.version>
+        <pool2.version>2.12.0</pool2.version>
 
         <jakarta.annotation-api.version>2.1.1</jakarta.annotation-api.version>
         <jakarta.persistence-api.version>3.0.0</jakarta.persistence-api.version>
@@ -1774,7 +1774,7 @@
             <dependency>
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
-                <version>1.2</version>
+                <version>1.3.1</version>
             </dependency>
             <dependency>
                 <groupId>jakarta.persistence</groupId>
@@ -1835,12 +1835,12 @@
             <dependency>
                 <groupId>javax.xml.bind</groupId>
                 <artifactId>jaxb-api</artifactId>
-                <version>2.2.1</version>
+                <version>2.4.0-b180830.0359</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
                 <artifactId>jaxb-impl</artifactId>
-                <version>2.2.1</version>
+                <version>4.0.5</version>
             </dependency>
             <dependency>
                 <groupId>org.hsqldb</groupId>
@@ -1913,7 +1913,7 @@
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>annotations</artifactId>
-                <version>3.0.1</version>
+                <version>3.0.1u2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -2121,7 +2121,7 @@
                         <dependency>
                             <groupId>org.apache.ant</groupId>
                             <artifactId>ant-jsch</artifactId>
-                            <version>1.10.9</version>
+                            <version>1.10.14</version>
                         </dependency>
                         <dependency>
                             <groupId>ant-contrib</groupId>
@@ -2185,7 +2185,7 @@
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
-                    <version>4.0.0</version>
+                    <version>5.1.9</version>
                     <extensions>true</extensions>
                     <configuration>
                         <instructions>
@@ -2198,7 +2198,7 @@
                 <plugin>
                     <groupId>org.apache.karaf.tooling</groupId>
                     <artifactId>karaf-maven-plugin</artifactId>
-                    <version>4.2.1</version>
+                    <version>4.4.6</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -2345,6 +2345,33 @@
                     </includes>
                 </configuration>
             </plugin>
+            <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.16.2</version>
+        <configuration>
+        <allowMinorUpdates>true</allowMinorUpdates>
+        <!--<allowMajorUpdates>true</allowMajorUpdates>-->
+        <allowIncrementalUpdates>true</allowIncrementalUpdates>
+        <includeProperties>ant.version,bval.version,dbcp2.version,derby.version,hsqldb.version,jakarta.annotation-api.version,jakarta.jms-api.version,jakarta.persistence-api.version,jakarta.transaction-api.version,jakarta.validation-api.version,jmock.version,kubernetes-client.version,log4j2.version,maven.javadoc.version,maven.plugin.tools.version,maven.surefire.version,min.maven.version,mysql.connector.version,pool2.version,postgresql.connector.version,slf4j.version,surefire.version</includeProperties>
+          <includes>
+            <include>org.jmock</include>
+            <include>org.apache.xbean</include>
+            <include>jakarta.persistence</include>
+            <include>mysql</include>
+            <include>org.slf4j</include>
+            <include>org.apache.commons</include>
+            <include>org.apache.xbean</include>
+            <include>org.apache.maven.plugin-tools</include>
+            <include>org.apache.logging.log4j</include>
+            <include>jakarta.annotation</include>
+            <include>jakarta.validation</include>
+            <include>org.apache.ant</include>
+            <include>*</include>
+    
+          </includes>
+        </configuration>
+      </plugin>
         </plugins>
     </build>
 

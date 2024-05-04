@@ -18,9 +18,8 @@
  */
 package org.apache.openjpa.lib.conf;
 
-import static java.util.Optional.ofNullable;
-
 import java.security.AccessController;
+import static java.util.Optional.ofNullable;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,7 +29,7 @@ import org.apache.openjpa.lib.util.StringUtil;
 public class ClassListValue extends Value {
     private Class<?>[] _values = new Class<?>[0];
 
-    public void set(final Class<?>[] values) {
+    public void set(final Class[] values) {
         assertChangeable();
         if (values != null) {
             _values = values;
@@ -69,7 +68,7 @@ public class ClassListValue extends Value {
                     } catch (final ClassNotFoundException e) {
                         throw new IllegalStateException(e);
                     }
-                }).toArray(Class<?>[]::new))
+                }).toArray(Class[]::new))
                 .orElse(null));
     }
 
